@@ -18,7 +18,7 @@ public class OperacoesVeiculos {
 		return operacoes;
 	}
 
-	public void criarVeiculo(Lista categorias) {
+	public void criarVeiculo() {
 		String placa = SysIn.pedePlaca();
 		String modelo = SysIn.pedeModelo(), marca = SysIn.pedeMarca();
 		int ano = SysIn.pedeAnoVeiculo(), potencia = SysIn.pedePotencia(), nlugares = SysIn.pedeNLugares();
