@@ -12,7 +12,7 @@ public class LDEclientes {
 		this.fim = null;
 	}
 
-	public void insereInicio(Cliente info) { // info = 10
+	public void insereInicio(Cliente info) { 
 		Nohcliente novo = new Nohcliente(info);
 		if (inicio == null) {
 			inicio = novo;

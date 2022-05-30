@@ -75,8 +75,12 @@ public class Veiculo {
 
 	@Override
 	public String toString() {
-		return "veiculos [placa=" + placa + ", modelo=" + modelo + ", marca=" + marca + ", ano=" + ano + ", potencia="
-				+ potencia + ", nlugares=" + nlugares + ", categoria=" + categoria + "]";
+		if(categoria != null) {
+			return "Veiculos: \n Placa: " + placa + "; \n Modelo: " + modelo + "; \n Marca: " + marca + "; \n Ano: " + ano + "; \n Potencia: "
+                + potencia + "; \n Numero de lugares: " + nlugares + "; \n Categoria: " + categoria.getNome() + ". \n";
+			}else return "Veiculos: \n Placa: " + placa + "; \n Modelo: " + modelo + "; \n Marca: " + marca + "; \n Ano: " + ano + "; \n Potencia: "
+            + potencia + "; \n Numero de lugares: " + nlugares + "; \n Categoria: " + "Desconhecida" + ". \n";
+		
 	}
 
 }

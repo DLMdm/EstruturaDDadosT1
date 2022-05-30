@@ -25,7 +25,7 @@ public class OperacoesClientes {
 
 	public void removerCliente(long CPF) {
 		if (contem(CPF)) {
-			if (OperacoesLocacoes.getOperacoes().estahLocado(CPF)) {
+			if (!OperacoesLocacoes.getOperacoes().estahLocado(CPF)) {
 				clientes.remove(clientes.get(CPF));
 			} else
 				System.out.println("Não é possível excluir um cliente com locação ativa!");

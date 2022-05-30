@@ -3,7 +3,6 @@ package interfaceUsiario;
 import base.Categoria;
 import base.Veiculo;
 import listas.LDEveiculos;
-import listas.Lista;
 
 public class OperacoesVeiculos {
 
@@ -34,12 +33,12 @@ public class OperacoesVeiculos {
 
 	public void removerVeiculo(String placa) {
 		if (contem(placa)) {
-			if (OperacoesLocacoes.getOperacoes().estahLocado(placa)) {
+			if (!OperacoesLocacoes.getOperacoes().estahLocado(placa)) {
 				veiculos.remove(veiculos.get(placa));
 			} else
 				System.out.println("Não é possível excluir um cliente com locação ativa!");
 		} else
-			System.out.println("Cliente não encontrado!");
+			System.out.println("Veículo não encontrado!");
 	}
 
 	public boolean contem(String placa) {
@@ -133,6 +132,10 @@ public class OperacoesVeiculos {
 	
 	public boolean gravarEmArquivo(String arquivo) {
 		return veiculos.gravarEmArquivo(arquivo);
+	}
+	
+	public boolean catEstaVinculada(int id) {
+		return veiculos.catEstaVinculada(id);
 	}
 
 }

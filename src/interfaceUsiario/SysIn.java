@@ -19,7 +19,7 @@ public class SysIn {
 			System.out.println(texto);
 			try {
 				resp = scan.nextLong();
-				test = false;
+				test = true;
 			} catch (Exception e) {
 				System.out.println(erro);
 				test = false;
@@ -39,7 +39,7 @@ public class SysIn {
 			System.out.println(texto);
 			try {
 				resp = scan.nextInt();
-				test = false;
+				test = true;
 			} catch (Exception e) {
 				System.out.println(erro);
 				test = false;
@@ -59,7 +59,7 @@ public class SysIn {
 			System.out.println(texto);
 			try {
 				resp = scan.nextInt();
-				test = false;
+				test = true;
 			} catch (Exception e) {
 				System.out.println(erro);
 				test = false;

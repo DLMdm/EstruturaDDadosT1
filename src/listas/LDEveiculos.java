@@ -106,6 +106,13 @@ public class LDEveiculos {
 		for (Nohveiculo i = fim; i != null; i = i.getAnt())
 			System.out.println(i.toString() + "\n");
 	}
+	
+	public boolean catEstaVinculada(int id) {
+		for (Nohveiculo i = inicio; i != null; i = i.getProx()) {
+			if(i.getInfo().getCategoria().getId() == id) return true;
+		}
+		return false;
+	}
 
 	public boolean atualizarListaComArquivo(String arquivo) {
 		try {
@@ -117,7 +124,7 @@ public class LDEveiculos {
 				String linha = (String) noh.getInfo();
 				String dados[] = linha.split(";");
 				if (dados.length == 7) {
-					Categoria cat = OperacoesCategorias.getOperacoes().get(Integer.parseInt(dados[7]));
+					Categoria cat = OperacoesCategorias.getOperacoes().get(Integer.parseInt(dados[6]));
 					insereFim(new Veiculo(dados[0], dados[1], dados[2], Integer.parseInt(dados[3]),
 							Integer.parseInt(dados[4]), Integer.parseInt(dados[5]), cat));
 				} else {
@@ -129,7 +136,7 @@ public class LDEveiculos {
 			} while (noh != null);
 
 		} catch (Exception e) {
-			System.out.println("Erro ao ler Clientes:" + e.getMessage());
+			System.out.println("Erro ao ler Veículos:" + e.getMessage());
 		}
 		return true;
 	}

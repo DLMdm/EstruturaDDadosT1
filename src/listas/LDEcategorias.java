@@ -68,7 +68,7 @@ public class LDEcategorias {
 
 	public Nohcategoria busca(int id) {
 		Nohcategoria resultado = null;
-		for (Nohcategoria i = inicio; i != null && i.getInfo().getId() != id; i = i.getProx()) {
+		for (Nohcategoria i = inicio; i != null; i = i.getProx()) {
 			if (i.getInfo().getId() == id)
 				resultado = i;
 		}

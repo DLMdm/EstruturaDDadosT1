@@ -59,8 +59,8 @@ public class Locacao {
 
 	@Override
 	public String toString() {
-		return "Locacoes [CNH=" + CNH + ", placa=" + placa + ", datInicio=" + datInicio + ", datFim=" + datFim
-				+ ", valor=" + valor + "]";
-	}
+        return "Locacoes: \n CNH: " + CNH + "; \n Placa: " + placa + "; \n Data de Inicio: " + datInicio + "; \n Data do Fim: " + datFim
+                + "; \n Valor: " + valor + ". \n";
+    }
 
 }

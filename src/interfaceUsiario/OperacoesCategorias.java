@@ -43,8 +43,10 @@ public class OperacoesCategorias {
 
 	public void excluiCategoria(int id) {
 		if (contem(id)) {
+			if(!OperacoesVeiculos.getOperacoes().catEstaVinculada(id)) {
 			categorias.remove(categorias.get(id));
 			System.out.println("Categoria excluida.");
+			}else System.out.println("Categoria Vinculada a veículos!\n Ação cancelada!");
 		} else
 			System.out.println("Categoria não encontrada!");
 	}
@@ -60,8 +62,13 @@ public class OperacoesCategorias {
 	public boolean atualizarListaComArquivo(String arquivo) {
 		return categorias.atualizarListaComArquivo(arquivo);
 	}
-	public void listaCategorias() {
-		
+	
+	public void imprimeInicioAFim() {
+		categorias.imprimeInicioAFim();
+	}
+
+	public void imprimeFimAInicio() {
+		categorias.imprimeFimAInicio();
 	}
 
 }
