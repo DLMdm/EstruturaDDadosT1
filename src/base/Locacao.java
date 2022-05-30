@@ -1,5 +1,6 @@
 package base;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Locacao {
@@ -59,7 +60,15 @@ public class Locacao {
 
 	@Override
 	public String toString() {
-        return "Locacoes: \n CNH: " + CNH + "; \n Placa: " + placa + "; \n Data de Inicio: " + datInicio + "; \n Data do Fim: " + datFim
+		String dInicio, dFim;
+		SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
+		dInicio = formato.format(datInicio);
+		if(datFim!= null) {
+		dFim = formato.format(datFim);
+		}else dFim = "n/a";
+		
+		
+        return "Locacoes: \n CNH: " + CNH + "; \n Placa: " + placa + "; \n Data de Inicio: " + dInicio + "; \n Data do Fim: " + dFim
                 + "; \n Valor: " + valor + ". \n";
     }
 
