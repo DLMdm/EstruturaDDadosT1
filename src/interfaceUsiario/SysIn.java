@@ -9,6 +9,7 @@ public class SysIn {
 		String resp = "";
 		System.out.println(texto);
 		resp = scan.next();
+		scan.nextLine();
 		return resp;
 	}
 
@@ -19,8 +20,10 @@ public class SysIn {
 			System.out.println(texto);
 			try {
 				resp = scan.nextLong();
+				scan.nextLine();
 				test = true;
 			} catch (Exception e) {
+				scan.nextLine();
 				System.out.println(erro);
 				test = false;
 			}
@@ -39,8 +42,10 @@ public class SysIn {
 			System.out.println(texto);
 			try {
 				resp = scan.nextInt();
+				scan.nextLine();
 				test = true;
 			} catch (Exception e) {
+				scan.nextLine();
 				System.out.println(erro);
 				test = false;
 			}
@@ -59,8 +64,10 @@ public class SysIn {
 			System.out.println(texto);
 			try {
 				resp = scan.nextInt();
+				scan.nextLine();
 				test = true;
 			} catch (Exception e) {
+				scan.nextLine();
 				System.out.println(erro);
 				test = false;
 			}

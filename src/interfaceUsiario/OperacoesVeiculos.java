@@ -35,6 +35,7 @@ public class OperacoesVeiculos {
 		if (contem(placa)) {
 			if (!OperacoesLocacoes.getOperacoes().estahLocado(placa)) {
 				veiculos.remove(veiculos.get(placa));
+				System.out.println("Veículo excluído!");
 			} else
 				System.out.println("Não é possível excluir um cliente com locação ativa!");
 		} else

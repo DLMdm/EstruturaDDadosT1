@@ -60,8 +60,8 @@ public class LDEclientes {
 
 	public Nohcliente busca(Cliente info) {
 		Nohcliente resultado = null;
-		for (Nohcliente i = inicio; i != null && i.getInfo() != info; i = i.getProx()) {
-			if (i.getInfo() == info)
+		for (Nohcliente i = inicio; i != null ; i = i.getProx()) {
+			if (i.getInfo().getCPF() == info.getCPF())
 				resultado = i;
 		}
 		return resultado;
@@ -69,7 +69,7 @@ public class LDEclientes {
 
 	public Nohcliente busca(Long cpf) {
 		Nohcliente resultado = null;
-		for (Nohcliente i = inicio; i != null && i.getInfo().getCPF() != cpf; i = i.getProx()) {
+		for (Nohcliente i = inicio; i != null; i = i.getProx()) {
 			if (i.getInfo().getCPF() == cpf)
 				resultado = i;
 		}

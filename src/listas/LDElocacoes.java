@@ -59,8 +59,8 @@ public class LDElocacoes {
 
 	public Nohlocacoes busca(Locacao info) {
 		Nohlocacoes resultado = null;
-		for (Nohlocacoes i = inicio; i != null && i.getInfo() != info; i = i.getProx()) {
-			if (i.getInfo() == info)
+		for (Nohlocacoes i = inicio; i != null; i = i.getProx()) {
+			if ((i.getInfo().getPlaca() == info.getPlaca()) && (i.getInfo().getCNH() == info.getCNH()))
 				resultado = i;
 		}
 		return resultado;
@@ -68,8 +68,8 @@ public class LDElocacoes {
 
 	public Nohlocacoes busca(String placa) {
 		Nohlocacoes resultado = null;
-		for (Nohlocacoes i = inicio; i != null && i.getInfo().getPlaca() != placa; i = i.getProx()) {
-			if (i.getInfo().getPlaca() == placa)
+		for (Nohlocacoes i = inicio; i != null; i = i.getProx()) {
+			if (i.getInfo().getPlaca().equals(placa))
 				resultado = i;
 		}
 		return resultado;
@@ -89,7 +89,7 @@ public class LDElocacoes {
 	}
 
 	public boolean possuiLocacao(long CNH) {
-		for (Nohlocacoes i = inicio; i != null && i.getInfo().getCNH() != CNH; i = i.getProx()) {
+		for (Nohlocacoes i = inicio; i != null; i = i.getProx()) {
 			if (i.getInfo().getCNH() == CNH)
 				return true;
 		}
@@ -98,7 +98,7 @@ public class LDElocacoes {
 
 	public boolean estahLocado(String placa) {
 		for (Nohlocacoes i = inicio; i != null; i = i.getProx())
-			if (i.getInfo().getPlaca() == placa)
+			if (i.getInfo().getPlaca().equals(placa))
 				return true;
 		return false;
 	}

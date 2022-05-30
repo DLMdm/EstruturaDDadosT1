@@ -62,17 +62,17 @@ public class LDEveiculos {
 
 	public Nohveiculo busca(Veiculo info) {
 		Nohveiculo resultado = null;
-		for (Nohveiculo i = inicio; i != null && i.getInfo() != info; i = i.getProx()) {
-			if (i.getInfo() == info)
-				resultado = i;
+		for (Nohveiculo i = inicio; i != null; i = i.getProx()) {
+			if (i.getInfo().getPlaca().equals(info.getPlaca()))
+				return i;
 		}
 		return resultado;
 	}
 
 	public Nohveiculo busca(String placa) {
 		Nohveiculo resultado = null;
-		for (Nohveiculo i = inicio; i != null && i.getInfo().getPlaca() != placa; i = i.getProx()) {
-			if (i.getInfo().getPlaca() == placa)
+		for (Nohveiculo i = inicio; i != null; i = i.getProx()) {
+			if (i.getInfo().getPlaca().equals(placa))
 				resultado = i;
 		}
 		return resultado;

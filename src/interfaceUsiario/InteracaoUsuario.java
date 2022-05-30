@@ -27,6 +27,7 @@ public class InteracaoUsuario {
 				PainelInicialLocacao();
 				break;
 			case 0:
+				break;
 			default:
 				System.out.println("Digite uma opçao válida. ");
 			}
@@ -52,6 +53,7 @@ public class InteracaoUsuario {
 					break;
 				}else
 				OperacoesVeiculos.getOperacoes().removerVeiculo(placaRemov);
+				break;
 			case 3:
 				String placaEdit = SysIn.pedePlaca();
 				if (!OperacoesVeiculos.getOperacoes().contem(placaEdit)) {
@@ -59,6 +61,7 @@ public class InteracaoUsuario {
 					break;
 				}else
 				PainelEditaVeiculo(placaEdit);
+				break;
 			case 4:
 				OperacoesVeiculos.getOperacoes().imprimeInicioAFim();
 				break;
