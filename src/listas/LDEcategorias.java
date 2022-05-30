@@ -46,7 +46,8 @@ public class LDEcategorias {
 			return false;
 		if (p.getAnt() == null) {
 			inicio = p.getProx();
-			inicio.setAnt(null);
+			if (inicio != null)
+				inicio.setAnt(null);
 		} else if (p.getProx() == null) {
 			p.getAnt().setProx(null);
 			fim = p.getAnt();
@@ -104,13 +105,13 @@ public class LDEcategorias {
 		for (Nohcategoria i = fim; i != null; i = i.getAnt())
 			System.out.println(i.toString() + "\n");
 	}
-	
+
 	public boolean atualizarListaComArquivo(String arquivo) {
 		try {
 			LDE lista = Arquivo.getLinhas(arquivo);
 			Noh noh = lista.getInicio();
 			do {
-				//os dados devem vir do arquivo no formato: id;nome
+				// os dados devem vir do arquivo no formato: id;nome
 				String linha = (String) noh.getInfo();
 				String dados[] = linha.split(";");
 				if (dados.length == 2) {
@@ -133,7 +134,7 @@ public class LDEcategorias {
 		String conteudo = "id;nome\n";
 		for (Nohcategoria i = inicio; i != null; i = i.getProx()) {
 			Categoria cat = i.getInfo();
-			conteudo += cat.getId() + ";" + cat.getNome();
+			conteudo += cat.getId() + ";" + cat.getNome()+ "\n";
 		}
 		try {
 			Arquivo.gravar(conteudo, arquivo);

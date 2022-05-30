@@ -7,11 +7,11 @@ public class LDElocacoes {
 	private Nohlocacoes fim;
 
 	public LDElocacoes() {
-			this.inicio = null;
-			this.fim = null;
-		}
+		this.inicio = null;
+		this.fim = null;
+	}
 
-	public void insereInicio(Locacao info) { 
+	public void insereInicio(Locacao info) {
 		Nohlocacoes novo = new Nohlocacoes(info);
 		if (inicio == null) {
 			inicio = novo;
@@ -45,7 +45,8 @@ public class LDElocacoes {
 			return false;
 		if (p.getAnt() == null) {
 			inicio = p.getProx();
-			inicio.setAnt(null);
+			if (inicio != null)
+				inicio.setAnt(null);
 		} else if (p.getProx() == null) {
 			p.getAnt().setProx(null);
 			fim = p.getAnt();
@@ -64,7 +65,7 @@ public class LDElocacoes {
 		}
 		return resultado;
 	}
-	
+
 	public Nohlocacoes busca(String placa) {
 		Nohlocacoes resultado = null;
 		for (Nohlocacoes i = inicio; i != null && i.getInfo().getPlaca() != placa; i = i.getProx()) {
@@ -73,37 +74,39 @@ public class LDElocacoes {
 		}
 		return resultado;
 	}
-	
+
 	public Locacao get(String placa) {
 		Nohlocacoes nohLoc = busca(placa);
-		if(nohLoc != null)
+		if (nohLoc != null)
 			return nohLoc.getInfo();
-		return null;	
+		return null;
 	}
-	
+
 	public boolean possuiLocacao(String placa) {
 		if (busca(placa) != null)
 			return true;
 		return false;
 	}
-	
-	public boolean possuiLocacao(long CNH){
+
+	public boolean possuiLocacao(long CNH) {
 		for (Nohlocacoes i = inicio; i != null && i.getInfo().getCNH() != CNH; i = i.getProx()) {
 			if (i.getInfo().getCNH() == CNH)
 				return true;
 		}
 		return false;
 	}
-	
+
 	public boolean estahLocado(String placa) {
 		for (Nohlocacoes i = inicio; i != null; i = i.getProx())
-			if(i.getInfo().getPlaca() == placa) return true;
+			if (i.getInfo().getPlaca() == placa)
+				return true;
 		return false;
 	}
-	
+
 	public boolean estahLocado(long CNH) {
 		for (Nohlocacoes i = inicio; i != null; i = i.getProx())
-			if(i.getInfo().getCNH() == CNH) return true;
+			if (i.getInfo().getCNH() == CNH)
+				return true;
 		return false;
 	}
 

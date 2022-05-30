@@ -12,7 +12,7 @@ public class LDEclientes {
 		this.fim = null;
 	}
 
-	public void insereInicio(Cliente info) { 
+	public void insereInicio(Cliente info) {
 		Nohcliente novo = new Nohcliente(info);
 		if (inicio == null) {
 			inicio = novo;
@@ -46,7 +46,8 @@ public class LDEclientes {
 			return false;
 		if (p.getAnt() == null) {
 			inicio = p.getProx();
-			inicio.setAnt(null);
+			if (inicio != null)
+				inicio.setAnt(null);
 		} else if (p.getProx() == null) {
 			p.getAnt().setProx(null);
 			fim = p.getAnt();
@@ -134,7 +135,7 @@ public class LDEclientes {
 		String conteudo = "nome;CPF;CNH;Telefone\n";
 		for (Nohcliente i = inicio; i != null; i = i.getProx()) {
 			Cliente cli = i.getInfo();
-			conteudo += cli.getNome() + ";" + cli.getCPF() + ";" + cli.getCNH() + ";" + cli.getTelefone();
+			conteudo += cli.getNome() + ";" + cli.getCPF() + ";" + cli.getCNH() + ";" + cli.getTelefone() + "\n";
 		}
 		try {
 			Arquivo.gravar(conteudo, arquivo);

@@ -8,11 +8,11 @@ public class LDE implements Lista {
 		this.inicio = null;
 		this.fim = null;
 	}
-	
+
 	public Noh getInicio() {
 		return inicio;
 	}
-	
+
 	public Noh getFim() {
 		return fim;
 	}
@@ -34,7 +34,7 @@ public class LDE implements Lista {
 	}
 
 	@Override
-	public void insereFim(Object info) { 
+	public void insereFim(Object info) {
 		Noh novo = new Noh(info);
 		if (fim == null) {
 			inicio = novo;
@@ -46,13 +46,14 @@ public class LDE implements Lista {
 		}
 	}
 
-	public boolean remove(Object info) { 
+	public boolean remove(Object info) {
 		Noh p = busca(info);
 		if (p == null)
 			return false;
 		if (p.getAnt() == null) {
 			inicio = p.getProx();
-			inicio.setAnt(null);
+			if (inicio != null)
+				inicio.setAnt(null);
 		} else if (p.getProx() == null) {
 			p.getAnt().setProx(null);
 			fim = p.getAnt();
@@ -65,9 +66,9 @@ public class LDE implements Lista {
 
 	public Noh busca(Object info) {
 		Noh resultado = null;
-		for(Noh i = inicio; i != null && i.getInfo() != info; i = i.getProx()) {
-			if(i == info)
-			resultado = i;
+		for (Noh i = inicio; i != null && i.getInfo() != info; i = i.getProx()) {
+			if (i == info)
+				resultado = i;
 		}
 		return resultado;
 	}
@@ -84,7 +85,7 @@ public class LDE implements Lista {
 		for (Noh i = inicio; i != null; i = i.getProx())
 			System.out.println(i.toString() + "\n");
 	}
-	
+
 	public void imprimeFimAInicio() {
 		for (Noh i = fim; i != null; i = i.getAnt())
 			System.out.println(i.toString() + "\n");

@@ -48,7 +48,8 @@ public class LDEveiculos {
 			return false;
 		if (p.getAnt() == null) {
 			inicio = p.getProx();
-			inicio.setAnt(null);
+			if (inicio != null)
+				inicio.setAnt(null);
 		} else if (p.getProx() == null) {
 			p.getAnt().setProx(null);
 			fim = p.getAnt();
@@ -106,10 +107,11 @@ public class LDEveiculos {
 		for (Nohveiculo i = fim; i != null; i = i.getAnt())
 			System.out.println(i.toString() + "\n");
 	}
-	
+
 	public boolean catEstaVinculada(int id) {
 		for (Nohveiculo i = inicio; i != null; i = i.getProx()) {
-			if(i.getInfo().getCategoria().getId() == id) return true;
+			if (i.getInfo().getCategoria().getId() == id)
+				return true;
 		}
 		return false;
 	}
@@ -146,7 +148,7 @@ public class LDEveiculos {
 		for (Nohveiculo i = inicio; i != null; i = i.getProx()) {
 			Veiculo vei = i.getInfo();
 			conteudo += vei.getPlaca() + ";" + vei.getModelo() + ";" + vei.getMarca() + ";" + vei.getAno() + ";"
-					+ vei.getPotencia() + ";" + vei.getNlugares() + ";" + vei.getCategoria().getId();
+					+ vei.getPotencia() + ";" + vei.getNlugares() + ";" + vei.getCategoria().getId() + "\n";
 		}
 		try {
 			Arquivo.gravar(conteudo, arquivo);
