@@ -21,12 +21,13 @@ public class InteracaoUsuario {
 				PainelInicialClientes();
 				break;
 			case 3:
-				PainelInicialClientes();
+				PainelInicialCategoria();
 				break;
 			case 4:
 				PainelInicialLocacao();
 				break;
 			case 0:
+				System.out.println("Programa encerrado!");
 				break;
 			default:
 				System.out.println("Digite uma opçao válida. ");
@@ -116,9 +117,11 @@ public class InteracaoUsuario {
 	}
 
 	public void PainelInicialCategoria() {
+		int op;
+		do {
 		System.out.println(
 				"Escolha uma das opçoes abaixo:\n 1- Incluir uma categoria.\n 2- Excluir uma categoria.\n 3- Editar o nome de uma categoria.\n 4- Listar categorias de frente para trás. \n 5- Listar categorias de trás para frente.\n 0- Voltar.");
-		int op = SysIn.inInt("Digite a opcao:");
+		op = SysIn.inInt("Digite a opcao:");
 		switch (op) {
 		case 1:
 			OperacoesCategorias.getOperacoes().criaCategoria();
@@ -139,10 +142,13 @@ public class InteracaoUsuario {
 		case 5:
 			OperacoesCategorias.getOperacoes().imprimeFimAInicio();
 			break;
+		case 0:
+			break;
 		default:
-			System.out.println("Digite uma opçao válida. ");
+			System.out.println("Digite uma opçao válida.");
 			break;
 		}
+		}while(op != 0);
 	}
 
 	public void PainelInicialLocacao() {

@@ -8,8 +8,7 @@ public class SysIn {
 	public static String inString(String texto) {
 		String resp = "";
 		System.out.println(texto);
-		resp = scan.next();
-		scan.nextLine();
+		resp = scan.nextLine();
 		return resp;
 	}
 
